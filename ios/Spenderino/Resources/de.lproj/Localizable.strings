@@ -1,0 +1,143 @@
+// General
+"ok" = "Okay";
+"loading" = "Lädt";
+"or" = "oder";
+"anon" = "Anonyme:r Nutzer:in";
+
+"error_title" = "Fehler";
+"error_message_reload" = "Wir konnten unsere Server nicht erreichen. Bitte prüfe deine Internetverbindung und versuche es noch einmal.";
+"error_message" = "Etwas ging schief beim Kontaktieren unserer Server. Bitte versuche es später erneut.";
+"error_reload" = "Erneut versuchen";
+
+// Alerts
+"alert_network_title" = "Netzwerkfehler";
+"alert_network_message" = "Wir konnten unsere Server nicht erreichen. Bitte prüfe deine Internetverbindung und versuche es noch einmal.";
+
+"alert_client_request_title" = "Client-Fehler: %@";
+"alert_client_request_message" = "Etwas ging schief bei der Kommunikation mit unseren Servern:\n%@";
+
+"alert_server_error_title" = "Server-Fehler: %@";
+"alert_server_error_message" = "Etwas ging schief bei der Kommunikation mit unseren Servern:\n%@";
+
+"alert_unknown_title" = "Unbekannter Fehler";
+"alert_unknown_message" = "Das hat nicht geklappt. Du kannst es vermutlich nochmal versuchen.";
+
+// DonationScanner
+"donation_scanner_title" = "QR-Code-Scanner";
+"donation_scanner_alert_unknown_title" = "Unbekannter QR-Code";
+"donation_scanner_alert_unknown_message" = "Der gescannte QR-Code ist entweder unkenntlich oder gehört nicht zu unserem Dienst.";
+
+// Donation
+"donation_title" = "Spenden";
+"donation_row_donation" = "Spende:";
+"donation_row_fee" = "Gebühr:";
+"donation_row_total" = "Summe:";
+"donation_headline" = "Du spendest an:";
+"donation_text" = "In diesem PoC funktionieren nur bestimmte Kreditkartennummern. Diese Nummern gehören zu Test-Kreditkarten die von unserem Zahlungsdienstleister zur Verfügung gestellt werden. Der Sicherheitscode für alle Karten ist **424** und das Ablaufdatum ist **0424**.";
+"donation_unknown_code" = "Tut uns leid!\nWir konnten leider keinen Nutzer:in zu diesem QR-Code ausfindig machen. Vielleicht wurde der Account gelöscht?";
+
+"donation_checkout_payment_row" = "Zahlungsmethode:";
+"donation_checkout_payment_donate_button" = "Spenden";
+"donation_checkout_payment_donate_button_prepare" = "Spende vorbereiten…";
+
+"donation_alert_payment_failed_title" = "Zahlung fehlgeschlagen";
+"donation_success" = "Spitze!\nDu hast %@ an %@ gespendet. Vielen Dank für die Unterstützung deiner örtlichen Gemeinschaft!";
+"donation_card_succeeds_label" = "Immer erfolgreich:";
+"donation_card_succeeds_card" = "4242 4242 4242 4242";
+"donation_card_succeeds_paste" = "4242424242424242";
+"donation_card_auth_label" = "Mit Authentifizierung:";
+"donation_card_auth_card" = "4000 0027 6000 3184";
+"donation_card_auth_paste" = "4000002760003184";
+"donation_card_fail_card" = "4000 0000 0000 0002";
+"donation_card_fail_paste" = "4000000000000002";
+"donation_card_fail_label" = "Schlägt fehl:";
+// Recipient
+"recipient_title" = "Spenden empfangen";
+"recipient_qrcode_title" = "Willkommen zurück, %@!";
+"recipient_qrcode_label" = "Dies ist dein persönlicher QR-Code. Andere Nutzer:innen können dir Geld spenden wenn sie diesen scannen. Du kannst ihnen deinen Bildschirm zeigen oder den QR-Code mittels des Share-Buttons teilen oder ausdrucken.";
+
+"recipient_anon_title" = "Willkommen, anonyme:r Nutzer:in!";
+"recipient_anon_label" = "Um Spenden empfangen zu können musst du bei uns registriert sein. Log dich ein oder registriere einen neuen Account!";
+"recipient_anon_disclaimer" = "Wenn du ausschließlich an andere Nutzer:innen spenden willst, kannst du das anonym tun und musst keinen Account erstellen.";
+"recipient_anon_button" = "Einloggen / Registrieren";
+
+"recipient_registered_title" = "Willkommen zurück!";
+"recipient_registered_label" = "Wir benötigen noch ein paar Informationen von dir bevor du Spenden empfangen kannst. Richte ein Alias ein so dass potentielle Spender:innen sicher sein können, dass sie deinen persönlichen QR-Code gescannt haben!";
+"recipient_registered_button" = "Registrierung abschließen";
+
+"recipient_tab_qr" = "QR-Code";
+"recipient_tab_balance" = "Guthaben & Auszahlung";
+
+// Payout
+"payout_title" = "Auszahlungscode";
+"payout_success" = "Du solltest jetzt das Bargeld empfangen haben.";
+
+// Tab
+"tab_donation" = "Spenden";
+"tab_preferences" = "Einstellungen";
+"tab_recipient" = "Home";
+
+// Balance
+"balance_title" = "Guthaben";
+"balance_current_headline" = "Dein aktuelles Guthaben beträgt:";
+"balance_withdrawal" = "Dies ist dein Auszahlungscode für %@.";
+"balance_withdrawal_amount_label" = "Auszahlungssumme:";
+"balance_withdrawal_create_button" = "Auszahlungscode erstellen";
+"balance_withdrawal_create" = "Wähle die Summe die du bar ausgezahlt bekommen willst und erstelle einen Auszahlungscode.";
+"balance_withdrawal_under_min" = "Du benötigst ein Guthaben von mindestens %@ um eine Barauszahlung zu starten. Danach kannst du eine Summe zwischen %@ und %@ wählen die du bei einem unserer Partnerunternehmen bar ausgezahlt bekommst.";
+"balance_withdrawal_cancel_button" = "Cancel withdrawal";
+"balance_past_withdrawal" = "abgehoben am %@ um %@";
+
+// Preferences
+"preferences_title" = "Einstellungen";
+"prefs_account_row_anonymous" = "Anonyme:r Nutzer:in";
+"prefs_account_row_info" = "Accounteinstellungen";
+
+// Account
+"account_title" = "Account";
+"account_email_label" = "E-MAIL";
+"account_email_hint" = "beispiel@internet.de";
+"account_password_label" = "PASSWORT";
+"account_password_hint" = "********************";
+"account_button_login" = "Einloggen";
+"account_button_register" = "Registrieren";
+
+"account_profile_button" = "Profil anlegen";
+"account_profile_instructions" = "Wir benötigen noch weitere Informationen bevor du Spenden annehmen kannst. Wenn du lediglich an andere Nutzer:innen spenden willst, kannst du diesen Schritt ignorieren.";
+"account_profile_username_label" = "ANZEIGENAME";
+"account_profile_username_placeholder" = "Maxi Mustermensch";
+"account_profile_username_hint" = "Dieser Name wird angezeigt wenn andere Nutzer:innen deinen QR-Code scannen um dir Geld zu spenden. Es muss nicht dein echter Name sein. Er sollte aber hilfreich sein dich gegenüber potentiellen Spender:innen zu identifizieren. So wissen diese dass es wirklich du bist statt nur irgendwer mit deinem QR-Code.";
+
+"account_alert_credentials_title" = "Nutzerdaten unbekannt";
+"account_alert_credentials_message" = "Die Kombination aus E-Mail-Adresse und Passwort ist uns nicht bekannt.";
+
+"account_alert_duplicate_title" = "Doppelte E-Mail-Adresse";
+"account_alert_duplicate_message" = "Es gibt bereits einen Account mit dieser E-Mail-Adresse.";
+
+"account_alert_rules_title" = "Passwort zu kurz";
+"account_alert_rules_message" = "Dein Passwort muss mindestens aus 6 Zeichen bestehen.";
+
+"account_alert_username_title" = "Anzeigename zu kurz";
+"account_alert_username_message" = "Dein Anzeigename muss mindestens 3 Zeichen lang sein.";
+
+"account_setup_complete" = "Dein Account und Profil sind fertig eingerichtet. Du kannst nun Spenden empfangen und das volle Potential dieser App nutzen. Zukünftig wird es an dieser Stelle Funktionen für die Accountverwaltung geben (zum Beispiel die Möglichkeit dein Passwort oder deine E-Mail-Adresse zu ändern). Dies war allerdings nicht Teil des PoC.";
+
+"account_transactions_button" = "Transaktionshistorie";
+"account_logout_button" = "Ausloggen";
+
+"account_alert_logout_title" = "Ausloggen";
+"account_alert_logout_message" = "Willst du dich wirklich ausloggen?";
+"account_alert_logout_confirm" = "Bestägigen";
+
+// Transactions
+"transactions_title" = "Transaktionshistorie";
+"transactions_empty_button" = "Erneut laden";
+"transactions_empty_label" = "Du hast bisher weder gespendet, noch Spenden empfangen.";
+
+"transactions_item_title_incoming" = "**%@** hat dir **%@** gespendet.";
+"transactions_item_title_outgoing" = "Du hast **%@** an **%@** gespendet.";
+
+"transactions_item_pending" = "IN ARBEIT";
+"transactions_item_complete" = "ABGESCHLOSSEN";
+"transactions_item_failed" = "FEHLGESCHLAGEN";
+

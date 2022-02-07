@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Spenderino</string>
+
+    <!--     General-->
+    <string name="ok">"Okay</string>
+    <string name="loading">Loading</string>
+    <string name="or">or</string>
+    <string name="anon">Anonymous</string>
+    <string name="cancel">Cancel</string>
+
+    <string name="error_title">Error</string>
+    <string name="error_message_reload">Something went wrong while contacting our servers. Please check your internet connection and try again.</string>
+    <string name="error_message">Something went wrong while contacting our servers. Please try again later.</string>
+    <string name="error_reload">Retry</string>
+
+<!--    // Alerts-->
+    <string name="alert_network_title">Network error</string>
+    <string name="alert_network_message">We couldn\'t reach our servers. Please check your internet connection and try again.</string>
+
+    <string name="alert_client_request_title">Client error: %s</string>
+    <string name="alert_client_request_message">Something went wrong during the network request:\n%s</string>
+
+    <string name="alert_server_error_title">Server error: %s</string>
+    <string name="alert_server_error_message">Something went wrong during the network request:\n%s</string>
+
+    <string name="alert_unknown_title">Unknown error</string>
+    <string name="alert_unknown_message">Something went wrong. You can probably try again.</string>
+
+<!--    // DonationScanner-->
+    <string name="donation_scanner_title">QR Code Scanner</string>
+    <string name="donation_scanner_alert_unknown_title">Unknown QR code</string>
+    <string name="donation_scanner_alert_unknown_message">We didn\'t recognize the scanned qr code. It\'s either malformed or does not belong to our service.</string>
+
+    <string name="donation_scanner_permission">The app needs permission to use the camera to be able to scan QR Codes.</string>
+    <string name="donation_scanner_permission_button">Grant Permission</string>
+    <string name="donation_scanner_permission_denied">You denied the camera permission. Without it you can\'t donate to other users because we need the camera to be able to scan QR Codes. You can still grant the permission in the device\'s settings.</string>
+    <string name="donation_scanner_permission_denied_button">Open Settings</string>
+
+    <!--    // Donation-->
+    <string name="donation_title">Donate</string>
+    <string name="donation_row_donation">Donation:</string>
+    <string name="donation_row_fee">Fee:</string>
+    <string name="donation_row_total">Sum total:</string>
+    <string name="donation_headline">You are donating to:</string>
+    <string name="donation_text">Only specific credit cards will work during the PoC. These are test cards provided by our payment provider.\nThe security code for all cards is 424 and the expiry date is 0424.</string>
+    <string name="donation_unknown_code">Sorry!\nWe unfortunately couldn\'t find a corresponding user for the provided code. Maybe the account was deleted?</string>
+
+    <string name="donation_checkout_payment_row">Payment method:</string>
+    <string name="donation_checkout_payment_donate_button">Donate</string>
+    <string name="donation_checkout_payment_donate_button_prepare">Preparing donation…</string>
+    <string name="donation_checkout_payment_choose_button">Choose…</string>
+    <string name="donation_checkout_payment_payment_missing">Missing Payment Method</string>
+
+    <string name="donation_alert_payment_failed_title">Payment failed</string>
+    <string name="donation_success">Success!\n\nYou have donated %1$s to %2$s.\n\nThank you for supporting your local community!</string>
+
+    <string name="donation_card_succeeds_label">Always succeeds:</string>
+    <string name="donation_card_succeeds_card">4242 4242 4242 4242</string>
+    <string name="donation_card_succeeds_paste">4242424242424242</string>
+
+    <string name="donation_card_auth_card">4000 0027 6000 3184</string>
+    <string name="donation_card_auth_label">Requires authorization:</string>
+    <string name="donation_card_auth_paste">4000002760003184</string>
+
+    <string name="donation_card_fail_label">Always fails:</string>
+    <string name="donation_card_fail_card">4000 0000 0000 0002</string>
+    <string name="donation_card_fail_paste">4000000000000002</string>
+
+
+<!--    // Recipient-->
+    <string name="recipient_title">Receive Donations</string>
+    <string name="recipient_qrcode_title">Welcome back, %s!</string>
+    <string name="recipient_qrcode_label">This is your unique QR code.\nOther users can donate money to you by scanning it. You can show this screen, share the code via the button or also print it out!</string>
+
+    <string name="recipient_anon_title">Welcome, anonymous user!</string>
+    <string name="recipient_anon_label">To be able to receive donations, you need to be registered with us.\nLog in to your account or create a new one!</string>
+    <string name="recipient_anon_disclaimer">If you just want to donate to other users, you can do so anonymously and don\'t need to create an account.</string>
+    <string name="recipient_anon_button">Log in / Register</string>
+
+    <string name="recipient_registered_title">Welcome back!</string>
+    <string name="recipient_registered_label">We still need some information before you can start receiving donations.\nSet up an alias so potential donators can be sure, it\'s really you!</string>
+    <string name="recipient_registered_button">Finish set up</string>
+
+<!--    // Tab-->
+    <string name="tab_donation">Donate</string>
+    <string name="tab_preferences">Settings</string>
+    <string name="tab_recipient">Home</string>
+
+<!--    // Balance-->
+    <string name="balance_title">Balance</string>
+    <string name="balance_current_headline">Your current balance is:</string>
+    <string name="balance_withdrawal">This is your payout code for %s.</string>
+    <string name="balance_withdrawal_amount_label">Payout amount:</string>
+    <string name="balance_withdrawal_create_button">Create payout code</string>
+    <string name="balance_withdrawal_create">Choose the amount you want to withdraw and create a payout code.</string>
+    <string name="balance_withdrawal_under_min">You need at least %1$s to be able to create a payout code. Then you can pick a value between %2$s and %3$s that you can withdraw at our partner stores.</string>
+    <string name="balance_past_withdrawal">withdrawn on: %1$s at %2$s</string>
+
+    <!--    // Preferences-->
+    <string name="preferences_title">Settings</string>
+    <string name="prefs_account_row_anonymous">Anonymous</string>
+    <string name="prefs_account_row_info">Account settings</string>
+    <string name="preferences_transactions_row">Transaction history</string>
+    <string name="preferences_transactions_row_info">Donations, Withdrawals</string>
+
+<!--    // Account-->
+    <string name="account_title">Account</string>
+    <string name="account_email_label">EMAIL</string>
+    <string name="account_email_hint">example@internet.com</string>
+    <string name="account_password_label">PASSWORD</string>
+    <string name="account_password_hint">********************</string>
+    <string name="account_button_login">Log in</string>
+    <string name="account_button_register">Register account</string>
+
+    <string name="account_profile_button">Create profile</string>
+    <string name="account_profile_instructions">We still need some information before you can receive donations.\nIf you only want to donate to other users, you can ignore this step.</string>
+    <string name="account_profile_username_label">DISPLAY NAME</string>
+    <string name="account_profile_username_placeholder">John Doe</string>
+    <string name="account_profile_username_hint">This alias will get displayed when other users scan your code to donate to you. It doesn\'t need to be your real name but should be helpful in identifying you to the donator.\nThat\'s how they\'ll know it\'s really you instead of someone else with your QR Code.</string>
+
+    <string name="account_alert_credentials_title">Wrong credentials</string>
+    <string name="account_alert_credentials_message">The email address and password combination you provided doesn\'t exist on our servers.</string>
+
+    <string name="account_alert_duplicate_title">Duplicate email address</string>
+    <string name="account_alert_duplicate_message">A user account with this email address does already exist.</string>
+
+    <string name="account_alert_rules_title">Password too short</string>
+    <string name="account_alert_rules_message">Your password must be at least 6 characters long.</string>
+
+    <string name="account_alert_username_title">Display name too short</string>
+    <string name="account_alert_username_message">Your display name must be at least 3 characters long.</string>
+
+    <string name="account_setup_complete">Your account &amp; profile are set up correctly. You can receive donations and use the app to its fullest potential.\nIn the future there will be account setting functionality (e.g. changing email or password) on this screen but that was out of the scope of this PoC.</string>
+
+    <string name="account_logout_button">Log out</string>
+
+    <string name="account_alert_logout_title">Log out</string>
+    <string name="account_alert_logout_message">Do you really want to log out of your account?</string>
+    <string name="account_alert_logout_confirm">Confirm</string>
+
+<!--    Transactions-->
+    <string name="transactions_title">Transaction History</string>
+    <string name="transactions_empty_button">Reload</string>
+    <string name="transactions_empty_label">You have not yet donated to someone or received any donations.</string>
+
+    <string name="transactions_item_title_incoming">%1$s donated %2$s to you.</string>
+    <string name="transactions_item_title_outgoing">You donated %1$s to %2$s.</string>
+    <string name="transactions_item_fee">Fee: %s</string>
+
+    <string name="transactions_item_pending">PENDING</string>
+    <string name="transactions_item_complete">COMPLETE</string>
+    <string name="transactions_item_failed">FAILED</string>
+    <string name="payout_title">Payout Code</string>
+    <string name="payout_success">You should have received the cash by now.</string>
+    <string name="recipient_tab_qr">QR Code</string>
+    <string name="recipient_tab_balance"><![CDATA[Balance & Payout]]></string>
+
+</resources>
