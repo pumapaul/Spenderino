@@ -1,0 +1,107 @@
+name: Spenderino
+options:
+  createIntermediateGroups: true
+  indentWidth: 4
+  tabWidth: 4
+packages:
+  CodeScanner:
+    url: https://github.com/twostraws/CodeScanner
+    from: 2.0.0
+  Stripe:
+    url: https://github.com/stripe/stripe-ios
+    from: 21.10.0
+  PagerTabStripView:
+    url: https://github.com/xmartlabs/PagerTabStripView
+    from: 3.1.1
+targets:
+  Spenderino:
+    type: application
+    platform: iOS
+    deploymentTarget: "15.0"
+    settings:
+      base:
+        OTHER_LDFLAGS: "$(inherited) -framework shared"
+        FRAMEWORK_SEARCH_PATHS: "$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)" 
+        TARGETED_DEVICE_FAMILY: 1
+        DEVELOPMENT_TEAM: NGAF3925JN
+        PRODUCT_BUNDLE_IDENTIFIER: de.paulweber.spenderino
+        CODE_SIGN_STYLE: Manual 
+      configs:
+        Debug:
+          CODE_SIGN_IDENTITY: iPhone Developer
+          PROVISIONING_PROFILE_SPECIFIER: match Development de.paulweber.spenderino
+        Release:
+          CODE_SIGN_IDENTITY: iPhone Distribution
+          PROVISIONING_PROFILE_SPECIFIER: match AppStore de.paulweber.spenderino
+    entitlements:
+      path: Spenderino/Resources/Spenderino.entitlements
+      properties:
+        com.apple.developer.associated-domains:
+          - applinks:spenderino.herokuapp.com
+          - appclips:spenderino.herokuapp.com
+    dependencies:
+      # - target: SpenderinoAppClip
+      - package: CodeScanner
+      - package: Stripe
+      - package: PagerTabStripView
+    preBuildScripts:
+      - script: "cd \"$SRCROOT/..\"\n./gradlew :shared:embedAndSignAppleFrameworkForXcode\n"
+    sources:
+      - path: Spenderino
+    scheme:
+      testTargets: 
+        - SpenderinoTests
+      gatherCoverageData: true
+  SpenderinoAppClip:
+    type: application.on-demand-install-capable
+    platform: iOS
+    deploymentTarget: 15.0
+    settings:
+      base:
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        TARGETED_DEVICE_FAMILY: 1
+        DEVELOPMENT_TEAM: NGAF3925JN
+        PRODUCT_BUNDLE_IDENTIFIER: de.paulweber.spenderino.Clip
+        CODE_SIGN_STYLE: Manual 
+      configs:
+        Debug:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: DEBUG APPCLIP
+          CODE_SIGN_IDENTITY: iPhone Developer
+          PROVISIONING_PROFILE_SPECIFIER: match Development de.paulweber.spenderino.Clip
+        Release:
+          SWIFT_ACTIVE_COMPILATION_CONDITIONS: APPCLIP
+          CODE_SIGN_IDENTITY: iPhone Distribution
+          PROVISIONING_PROFILE_SPECIFIER: match AppStore de.paulweber.spenderino.Clip
+    sources:
+      - path: SpenderinoAppClip
+    entitlements:
+      path: SpenderinoAppClip/Resources/SpenderinoAppClip.entitlements
+      properties:
+        com.apple.developer.associated-domains:
+          - applinks:spenderino.herokuapp.com
+          - appclips:spenderino.herokuapp.com
+        com.apple.developer.parent-application-identifiers:
+          - $(AppIdentifierPrefix)de.paulweber.spenderino
+    dependencies:
+      - package: Stripe
+  SpenderinoTests:
+    type: bundle.unit-test
+    platform: iOS
+    deploymentTarget: "15.0"
+    settings:
+      DEVELOPMENT_TEAM: NGAF3925JN
+      CODE_SIGN_STYLE: Automatic
+    sources:
+      - path: SpenderinoTests
+    dependencies:
+      - target: Spenderino
+    preBuildScripts:
+      - script: |
+          if which swiftlint >/dev/null; then
+            swiftlint autocorrect
+            swiftlint
+          else
+            echo "error: SwiftLint not installed, download from https://github.com/realm/SwiftLint"
+            exit 1
+          fi

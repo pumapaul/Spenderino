@@ -1,0 +1,32 @@
+name: Lint
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        name: Setup file extension filters
+        id: changes
+        with:
+          filters: |
+            swift:
+              - '**.swift'
+            kotlin:
+              - '**.kt'
+      - if: steps.changes.outputs.swift == 'true'
+        name: Run SwiftLint
+        uses: norio-nomura/action-swiftlint@3.2.1
+        with:
+          args: --strict
+        env:
+          WORKING_DIRECTORY: ios
+      - if: steps.changes.outputs.kotlin == 'true'
+        name: Run detekt
+        uses: natiginfo/action-detekt-all@1.19.0
+        with:
+          args: --config detekt/detekt_config.yml

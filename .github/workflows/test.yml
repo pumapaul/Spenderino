@@ -1,0 +1,83 @@
+name: Test
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  Test_shared:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        name: Setup file extension filters
+        id: changes
+        with:
+          filters: |
+            shared:
+              - 'shared/**/**.kt'
+      - if: steps.changes.outputs.shared == 'true'
+        name: Setup JVM
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 11
+      - if: steps.changes.outputs.shared == 'true'
+        name: Setup and execute Gradle ':shared:test' task
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: :shared:koverVerify
+  Test_android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        name: Setup file extension filters
+        id: changes
+        with:
+          filters: |
+            android:
+              - 'android/**/**.kt'
+            shared:
+              - 'shared/**/**.kt'
+      - if: steps.changes.outputs.shared == 'true' || steps.changes.outputs.android == 'true' 
+        name: Setup JVM
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 11
+      - if: steps.changes.outputs.shared == 'true' || steps.changes.outputs.android == 'true' 
+        name: Setup and execute Gradle ':android:test' task
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: :android:test
+  Test_iOS:
+    runs-on: macos-11
+    steps:
+      - uses: actions/checkout@v2
+      - uses: dorny/paths-filter@v2
+        name: Setup file extension filters
+        id: changes
+        with:
+          filters: |
+            swift:
+              - '**.swift'
+            shared:
+              - 'shared/**/**.kt'
+      - if: steps.changes.outputs.shared == 'true' || steps.changes.outputs.swift == 'true'
+        name: Setup JVM
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: 11
+      - if: steps.changes.outputs.shared == 'true' || steps.changes.outputs.swift == 'true'
+        uses: xavierLowmiller/xcodegen-action@1.1.2
+        name: Run xcodegen
+        with:
+          spec: ios/project.yml
+          quiet: false
+          version: '2.25.0'
+      - if: steps.changes.outputs.shared == 'true' || steps.changes.outputs.swift == 'true'
+        name: Run xctest
+        run: >-
+          xcodebuild test -workspace ios/Spenderino.xcodeproj/project.xcworkspace -scheme Spenderino -destination 'platform=iOS Simulator,name=iPhone 13,OS=15.2'

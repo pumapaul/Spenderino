@@ -1,0 +1,17 @@
+*.iml
+.gradle
+/local.properties
+.idea
+.DS_Store
+/build
+*/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+# iOS
+/ios/Spenderino.xcodeproj
+/ios/Pods/
+/ios/Spenderino.xcworkspace
+android/release/android-release.aab

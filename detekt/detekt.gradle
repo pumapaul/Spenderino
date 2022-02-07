@@ -1,0 +1,11 @@
+apply plugin: 'io.gitlab.arturbosch.detekt'
+
+detekt {
+    config = files("$rootDir/detekt/detekt_config.yml")
+    input = files("$rootDir/android/src", "$rootDir/shared/src")
+    autoCorrect = true
+}
+
+dependencies {
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:1.19.0"
+}
