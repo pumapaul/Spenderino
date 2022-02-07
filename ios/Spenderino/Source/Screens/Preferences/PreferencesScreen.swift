@@ -1,7 +1,7 @@
 import SwiftUI
 import shared
 
-struct PreferencesView: View {
+struct PreferencesScreen: View {
     let viewModel: PreferencesViewModel
 
     var body: some View {
@@ -39,11 +39,11 @@ struct PreferencesView: View {
             ConfigureRoutes(route: viewModel.wrappedRoute) { route in
                 NavigationLink(
                     route: Binding<PreferencesRoute.Transactions?>(route: route),
-                    destination: { TransactionsView(viewModel: $0.viewModel) }
+                    destination: { TransactionsScreen(viewModel: $0.viewModel) }
                 )
                 NavigationLink(
                     route: Binding<PreferencesRoute.Account?>(route: route),
-                    destination: { AccountView(viewModel: $0.viewModel) }
+                    destination: { AccountScreen(viewModel: $0.viewModel) }
                 )
             }
         }
@@ -53,6 +53,6 @@ struct PreferencesView: View {
 
 struct PreferencesView_Previews: PreviewProvider {
     static var previews: some View {
-        PreferencesView(viewModel: .init(state: .init(), route: nil))
+        PreferencesScreen(viewModel: .init(state: .init(), route: nil))
     }
 }

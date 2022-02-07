@@ -1,7 +1,7 @@
 import SwiftUI
 import shared
 
-struct AccountView: View {
+struct AccountScreen: View {
     let viewModel: AccountViewModel
 
     var body: some View {
@@ -57,7 +57,7 @@ struct AccountView: View {
 
 struct AccountView_Previews: PreviewProvider {
     static var previews: some View {
-        AccountView(
+        AccountScreen(
             viewModel: .init(
                 state: AccountState.Anonymous(
                     isLoginLoading: false,

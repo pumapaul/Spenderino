@@ -7,7 +7,7 @@ struct SpenderinoApp: App {
 
 	var body: some Scene {
 		WindowGroup {
-            MainView(viewModel: AppViewModel.companion.bootstrap())
+            MainScreen(viewModel: AppViewModel.companion.bootstrap())
 		}
 	}
 }

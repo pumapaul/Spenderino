@@ -1,7 +1,7 @@
 import SwiftUI
 import shared
 
-struct TransactionsView: View {
+struct TransactionsScreen: View {
     let viewModel: TransactionsViewModel
 
     var body: some View {
@@ -73,6 +73,6 @@ extension TransactionState.TransactionItem: Identifiable {}
 
 struct TransactionsView_Previews: PreviewProvider {
     static var previews: some View {
-        TransactionsView(viewModel: .init(state: TransactionState.Loading(), onBack: {}))
+        TransactionsScreen(viewModel: .init(state: TransactionState.Loading(), onBack: {}))
     }
 }

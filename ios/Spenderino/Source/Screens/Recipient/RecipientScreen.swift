@@ -1,7 +1,7 @@
 import SwiftUI
 import shared
 
-struct RecipientView: View {
+struct RecipientScreen: View {
     let viewModel: RecipientViewModel
 
     var body: some View {
