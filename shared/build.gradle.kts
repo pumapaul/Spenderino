@@ -129,11 +129,17 @@ buildkonfig {
     packageName = "de.paulweber.spenderino.utility"
 
     val stripeKey: String by project
+    val baseUrl: String by project
     defaultConfigs {
         buildConfigField(
             com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING,
-            "StripeKey",
+            "STRIPE_KEY",
             stripeKey
+        )
+        buildConfigField(
+            com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING,
+            "BASE_URL",
+            baseUrl
         )
     }
 }

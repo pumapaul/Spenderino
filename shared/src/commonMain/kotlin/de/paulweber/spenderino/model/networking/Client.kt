@@ -1,5 +1,6 @@
 package de.paulweber.spenderino.model.networking
 
+import de.paulweber.spenderino.utility.BuildKonfig
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.HttpClientEngine
 import io.ktor.client.features.ClientRequestException
@@ -31,7 +32,7 @@ private val tokenClient = HttpClient(getDefaultPlatformEngine()) {
 
 val tokenStore: TokenStore by lazy { TokenStore() }
 
-const val BASE_URL = "https://spenderino.herokuapp.com"
+val BASE_URL = BuildKonfig.BASE_URL
 
 val client = HttpClient(getDefaultPlatformEngine()) {
 
