@@ -50,7 +50,7 @@ class DonationViewModel(
     onBack: () -> Unit = {}
 ) : ViewModel<DonationAction, DonationRoute, DonationState>(state, route, onBack) {
     private val donationRepo: DonationRepository by inject()
-    val stripeKey = BuildKonfig.StripeKey
+    val stripeKey = BuildKonfig.STRIPE_KEY
     private val code = url.removePrefix("$BASE_URL/r/")
 
     init {

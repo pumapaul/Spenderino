@@ -25,7 +25,7 @@ There's a backend codebase located at https://github.com/pumapaul/spenderino-bac
   We generally use the latest version, if not explicitly specified otherwise
 * Provide a Stripe API key at `stripeKey ` in `gradle.properties`.
   You can build and use the apps without it but donating / payment will not function.
-* If you want to use a backend other than the default one, change `BASE_URL` in `de.paulweber.spenderino.model.networking.Client.kt` in the `shared` module
+* If you want to use a backend other than the default one, change `baseUrl` in `gradle.properties`
 
 ### Android
 
