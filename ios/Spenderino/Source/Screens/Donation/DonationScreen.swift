@@ -2,7 +2,7 @@ import SwiftUI
 import shared
 import Stripe
 
-struct DonationView: View {
+struct DonationScreen: View {
     let viewModel: DonationViewModel
     @State var pickerValue: Int64 = 1
 
@@ -79,6 +79,6 @@ struct DonationView: View {
 
 struct DonationView_Previews: PreviewProvider {
     static var previews: some View {
-        DonationView(viewModel: .init(url: "", state: DonationState.Error.ErrorUnknownCode(), route: nil, onBack: {}))
+        DonationScreen(viewModel: .init(url: "", state: DonationState.Error.ErrorUnknownCode(), route: nil, onBack: {}))
     }
 }

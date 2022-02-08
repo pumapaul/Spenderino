@@ -1,7 +1,7 @@
 import SwiftUI
 import shared
 
-struct RootView: View {
+struct TabScreen: View {
     let viewModel: TabViewModel
 
     var body: some View {
@@ -12,19 +12,19 @@ struct RootView: View {
                     set: { viewModel.perform(action: TabAction.SelectTab(newTab: $0)) }
                 )) {
                     NavigationView {
-                        DonationScannerView(viewModel: viewModel.donationScannerViewModel)
+                        DonationScannerScreen(viewModel: viewModel.donationScannerViewModel)
                     }
                     .tabItem { Label("tab_donation", systemImage: "camera") }
                     .tag(TabEnum.donation)
 
                     NavigationView {
-                        RecipientView(viewModel: viewModel.recipientViewModel)
+                        RecipientScreen(viewModel: viewModel.recipientViewModel)
                     }
                     .tabItem { Label("tab_recipient", systemImage: "qrcode") }
                     .tag(TabEnum.recipient)
 
                     NavigationView {
-                        PreferencesView(viewModel: viewModel.preferencesViewModel)
+                        PreferencesScreen(viewModel: viewModel.preferencesViewModel)
                     }
                     .tabItem { Label("tab_preferences", systemImage: "gearshape") }
                     .tag(TabEnum.preferences)

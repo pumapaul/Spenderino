@@ -2,7 +2,7 @@ import SwiftUI
 import shared
 import CodeScanner
 
-struct DonationScannerView: View {
+struct DonationScannerScreen: View {
     let viewModel: DonationScannerViewModel
     @State var code = ""
 
@@ -22,7 +22,7 @@ struct DonationScannerView: View {
             ConfigureRoutes(route: viewModel.wrappedRoute) { route in
                 NavigationLink(
                     route: Binding<DonationScannerRoute.Donation?>(route: route),
-                    destination: { DonationView(viewModel: $0.viewModel) }
+                    destination: { DonationScreen(viewModel: $0.viewModel) }
                 )
                 .alert(
                     route: Binding<DonationScannerRoute.Alert?>(
@@ -37,6 +37,6 @@ struct DonationScannerView: View {
 
 struct DonationScannerView_Previews: PreviewProvider {
     static var previews: some View {
-        DonationScannerView(viewModel: .init(route: nil))
+        DonationScannerScreen(viewModel: .init(route: nil))
     }
 }
