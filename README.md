@@ -20,6 +20,7 @@ There's a backend codebase located at https://github.com/pumapaul/spenderino-bac
 
 ## Getting started
 
+* Install Java 11 - it's a prerequisite for Kotlin Multiplatform
 * Clone the repository
 * Import the project into Android Studio.
   We generally use the latest version, if not explicitly specified otherwise
