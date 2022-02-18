@@ -74,7 +74,7 @@ We generally adhere to the MVVM pattern with some small tweaks.
 
 The ViewModel and Model layers are defined in Kotlin in the `shared` codebase. The UI code for Android is defined in the `android` module and iOS UI Code is defined in the `ios` subfolder as an Xcode project.
 
-Here's a quick overview for the core concepts, if you want a deeper dive, please refer to the GitHub project's Wiki.
+Here's a quick overview for the core concepts, if you want a deeper dive, please refer to the GitHub project's [Wiki](https://github.com/pumapaul/Spenderino/wiki).
 
 ### View
 
