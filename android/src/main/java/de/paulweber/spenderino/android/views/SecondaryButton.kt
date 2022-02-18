@@ -23,7 +23,7 @@ fun SecondaryButton(
         colors = ButtonDefaults.buttonColors(
             backgroundColor = MaterialTheme.colors.secondary
         ),
-        contentPadding = PaddingValues(vertical = 12.dp),
+        contentPadding = PaddingValues(12.dp),
         modifier = modifier
             .defaultMinSize(200.dp, 50.dp)
     ) {
