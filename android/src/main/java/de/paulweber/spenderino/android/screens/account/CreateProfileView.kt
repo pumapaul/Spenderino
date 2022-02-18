@@ -3,11 +3,8 @@ package de.paulweber.spenderino.android.screens.account
 import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.LocalContentAlpha
 import androidx.compose.material.MaterialTheme
@@ -24,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import de.paulweber.spenderino.android.R
+import de.paulweber.spenderino.android.views.PrimaryLoadingButton
 import de.paulweber.spenderino.model.repositories.user.User
 import de.paulweber.spenderino.viewmodel.AccountAction
 import de.paulweber.spenderino.viewmodel.AccountState
@@ -62,20 +60,14 @@ private fun CreateButton(
     viewModel: AccountViewModel,
     clearFocus: () -> Unit
 ) {
-    Button(
+    PrimaryLoadingButton(
+        isLoading = state.isLoading,
         onClick = {
             clearFocus()
             viewModel.perform(AccountAction.CreateProfile)
         },
         enabled = !state.isLoading,
-        modifier = Modifier.size(200.dp, 50.dp)
-    ) {
-        if (state.isLoading) {
-            CircularProgressIndicator()
-        } else {
-            Text(stringResource(R.string.account_profile_button))
-        }
-    }
+    ) { Text(stringResource(R.string.account_profile_button)) }
 }
 
 @Composable
@@ -105,7 +97,7 @@ private fun UserNameTextField(
 @Composable
 private fun Preview() {
     CreateProfileView(
-        AccountState.Registered(User("", User.UserType.REGISTERED, null)),
+        AccountState.Registered(User("", User.UserType.REGISTERED, null), isLoading = true),
         AccountViewModel()
     )
 }

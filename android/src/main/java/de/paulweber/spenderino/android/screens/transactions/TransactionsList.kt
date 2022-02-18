@@ -4,11 +4,8 @@ import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.Icon
 import androidx.compose.material.LocalContentAlpha
@@ -26,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import de.paulweber.spenderino.android.R
+import de.paulweber.spenderino.android.views.PrimaryLoadingButton
 import de.paulweber.spenderino.viewmodel.TransactionAction
 import de.paulweber.spenderino.viewmodel.TransactionState
 import de.paulweber.spenderino.viewmodel.TransactionsViewModel
@@ -68,19 +66,13 @@ fun TransactionList(
                         textAlign = TextAlign.Center
                     )
                 }
-                Button(
+                PrimaryLoadingButton(
+                    isLoading = isRefreshing.isRefreshing,
                     onClick = { viewModel.perform(TransactionAction.RELOAD) },
                     enabled = !isRefreshing.isRefreshing,
-                    modifier = Modifier.size(150.dp, 50.dp)
                 ) {
-                    if (isRefreshing.isRefreshing) {
-                        CircularProgressIndicator(
-                            color = MaterialTheme.colors.onPrimary.copy(alpha = 0.5f)
-                        )
-                    } else {
-                        Icon(Icons.Outlined.Refresh, contentDescription = "refresh button")
-                        Text(stringResource(id = R.string.transactions_empty_button))
-                    }
+                    Icon(Icons.Outlined.Refresh, contentDescription = "refresh button")
+                    Text(stringResource(id = R.string.transactions_empty_button))
                 }
             }
         }

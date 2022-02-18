@@ -5,11 +5,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -25,6 +22,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.flowWithLifecycle
 import com.stripe.android.paymentsheet.model.PaymentOption
 import de.paulweber.spenderino.android.R
+import de.paulweber.spenderino.android.views.ButtonLoadingIndicator
+import de.paulweber.spenderino.android.views.PrimaryButton
 import de.paulweber.spenderino.utility.toEuroString
 import de.paulweber.spenderino.viewmodel.DonationState
 import de.paulweber.spenderino.viewmodel.DonationViewModel
@@ -71,17 +70,14 @@ fun DonationView(
             }
 
             Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
-                Button(
+                PrimaryButton(
                     enabled = isInteractionEnabled,
-                    onClick = { stripeViewModel.confirmPayment() },
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(32.dp)
+                    onClick = { stripeViewModel.confirmPayment() }
                 ) {
                     when {
                         paymentOptions == null -> Text(stringResource(R.string.donation_checkout_payment_payment_missing))
                         !isInteractionBlocked -> Text(stringResource(R.string.donation_checkout_payment_donate_button))
-                        else -> CircularProgressIndicator()
+                        else -> ButtonLoadingIndicator()
                     }
                 }
             }

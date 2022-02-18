@@ -87,7 +87,7 @@ struct RecipientScreen: View {
                     viewModel.perform(action: RecipientAction.CreateProfile())
                 } label: {
                     Text("recipient_registered_button")
-                        .frame(width: 200, height: 30)
+                        .frame(minWidth: 200, minHeight: 30)
                 }.buttonStyle(.borderedProminent)
             }
             .padding(32)
@@ -113,7 +113,7 @@ struct RecipientScreen: View {
                     viewModel.perform(action: RecipientAction.Login())
                 } label: {
                     Text("recipient_anon_button")
-                        .frame(width: 200, height: 30)
+                        .frame(minWidth: 200, minHeight: 30)
                 }.buttonStyle(.borderedProminent)
 
                 Spacer().frame(height: 16)

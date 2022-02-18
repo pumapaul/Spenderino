@@ -36,22 +36,17 @@ struct CheckoutView: View {
             Spacer().frame(height: 32)
 
             if let paymentSheetFlowController = viewModel.paymentSheetFlowController {
-                Button {
+                LoadingButton(isLoading: testState) {
                     testState = true
                 } label: {
-                    if testState {
-                        ProgressView()
-                            .frame(minWidth: 200, minHeight: 30)
-                    } else {
-                        Text("donation_checkout_payment_donate_button")
-                            .frame(minWidth: 200, minHeight: 30)
-                    }
-                }.paymentConfirmationSheet(
+                    Text("donation_checkout_payment_donate_button")
+                }
+                .paymentConfirmationSheet(
                     isConfirming: $testState,
                     paymentSheetFlowController: paymentSheetFlowController,
                     onCompletion: viewModel.onCompletion
                 )
-                .buttonStyle(BorderedProminentButtonStyle())
+                .buttonStyle(.borderedProminent)
                 .padding(.horizontal, 32)
                 .disabled(
                     paymentSheetFlowController.paymentOption == nil
@@ -62,10 +57,9 @@ struct CheckoutView: View {
             } else {
                 Button {} label: {
                     Text("donation_checkout_payment_donate_button_prepare")
-                        .frame(width: 200, height: 30)
-
+                        .frame(minWidth: 200, minHeight: 30)
                 }
-                .buttonStyle(BorderedProminentButtonStyle())
+                .buttonStyle(.borderedProminent)
                 .disabled(true)
             }
         }

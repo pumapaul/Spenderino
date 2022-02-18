@@ -33,16 +33,10 @@ struct CreateProfileView: View {
     }
 
     var createButton: some View {
-        Button {
+        LoadingButton(isLoading: state.isLoading) {
             viewModel.perform(action: AccountAction.CreateProfile())
         } label: {
-            if state.isLoading {
-                ProgressView()
-                    .frame(width: 200, height: 30)
-            } else {
-                Text("account_profile_button")
-                    .frame(width: 200, height: 30)
-            }
+            Text("account_profile_button")
         }
         .buttonStyle(.borderedProminent)
     }

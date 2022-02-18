@@ -20,6 +20,8 @@ import de.paulweber.spenderino.android.destinations.AlertDestination
 import de.paulweber.spenderino.android.destinations.CreateAccountScreenDestination
 import de.paulweber.spenderino.android.utility.ConfigureRouting
 import de.paulweber.spenderino.android.utility.Screen
+import de.paulweber.spenderino.android.views.ErrorView
+import de.paulweber.spenderino.android.views.LoadingView
 import de.paulweber.spenderino.viewmodel.AccountRoute
 import de.paulweber.spenderino.viewmodel.AccountState
 import de.paulweber.spenderino.viewmodel.AccountViewModel
@@ -54,10 +56,6 @@ fun CreateAccountScreen(
         destination = CreateAccountScreenDestination,
         navigator = navigator
     ) {
-        // Box(
-        //     contentAlignment = Alignment.Center,
-        // ) {
-
         val border = if (MaterialTheme.colors.isLight) {
             BorderStroke(0.5.dp, MaterialTheme.colors.onSurface.copy(alpha = 0.2f))
         } else null
@@ -86,9 +84,10 @@ fun CreateAccountScreen(
                             inclusive = true
                         )
                     }
+                    AccountState.Error -> ErrorView()
+                    AccountState.Loading -> LoadingView()
                 }
             }
         }
-        // }
     }
 }

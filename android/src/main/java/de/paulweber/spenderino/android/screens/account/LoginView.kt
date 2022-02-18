@@ -4,12 +4,8 @@ import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.Button
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.OutlinedTextField
 import androidx.compose.material.Text
@@ -25,6 +21,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import de.paulweber.spenderino.android.R
+import de.paulweber.spenderino.android.views.PrimaryLoadingButton
+import de.paulweber.spenderino.android.views.SecondaryLoadingButton
 import de.paulweber.spenderino.viewmodel.AccountAction
 import de.paulweber.spenderino.viewmodel.AccountState
 import de.paulweber.spenderino.viewmodel.AccountViewModel
@@ -79,20 +77,14 @@ private fun LoginButton(
     viewModel: AccountViewModel,
     clearFocus: () -> Unit
 ) {
-    Button(
+    PrimaryLoadingButton(
+        isLoading = state.isLoginLoading,
         onClick = {
             clearFocus()
             viewModel.perform(AccountAction.Login)
         },
         enabled = !(state.isLoginLoading || state.isRegisterLoading),
-        modifier = Modifier.size(200.dp, 50.dp)
-    ) {
-        if (state.isLoginLoading) {
-            CircularProgressIndicator()
-        } else {
-            Text(stringResource(R.string.account_button_login))
-        }
-    }
+    ) { Text(stringResource(R.string.account_button_login)) }
 }
 
 @Composable
@@ -101,23 +93,14 @@ private fun RegisterButton(
     viewModel: AccountViewModel,
     clearFocus: () -> Unit
 ) {
-    Button(
+    SecondaryLoadingButton(
+        enabled = !(state.isLoginLoading || state.isRegisterLoading),
+        isLoading = state.isRegisterLoading,
         onClick = {
             clearFocus()
             viewModel.perform(AccountAction.Register)
-        },
-        colors = ButtonDefaults.buttonColors(
-            backgroundColor = MaterialTheme.colors.secondary
-        ),
-        modifier = Modifier.size(200.dp, 50.dp),
-        enabled = !(state.isLoginLoading || state.isRegisterLoading)
-    ) {
-        if (state.isRegisterLoading) {
-            CircularProgressIndicator(color = MaterialTheme.colors.secondary)
-        } else {
-            Text(stringResource(R.string.account_button_register))
         }
-    }
+    ) { Text(stringResource(R.string.account_button_register)) }
 }
 
 @Composable

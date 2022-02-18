@@ -4,8 +4,6 @@ import androidx.compose.foundation.layout.Arrangement.Absolute.spacedBy
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.size
-import androidx.compose.material.Button
 import androidx.compose.material.ContentAlpha
 import androidx.compose.material.LocalContentAlpha
 import androidx.compose.material.MaterialTheme
@@ -19,6 +17,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import de.paulweber.spenderino.android.R
+import de.paulweber.spenderino.android.views.PrimaryButton
 import de.paulweber.spenderino.viewmodel.RecipientAction
 import de.paulweber.spenderino.viewmodel.RecipientViewModel
 
@@ -43,12 +42,9 @@ fun RecipientRegisteredView(viewModel: RecipientViewModel) {
 
         Spacer(Modifier.height(16.dp))
 
-        Button(
+        PrimaryButton(
             onClick = { viewModel.perform(RecipientAction.CreateProfile) },
-            Modifier.size(200.dp, 50.dp)
-        ) {
-            Text(stringResource(R.string.recipient_registered_button))
-        }
+        ) { Text(stringResource(R.string.recipient_registered_button)) }
     }
 }
 
