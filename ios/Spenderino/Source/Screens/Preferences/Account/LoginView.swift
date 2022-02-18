@@ -76,6 +76,7 @@ struct LoginView: View {
 
         .textFieldStyle(.roundedBorder)
         .textContentType(.emailAddress)
+        .autocapitalization(.none)
     }
 
     var passwordTextField: some View {
