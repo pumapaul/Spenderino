@@ -3,7 +3,6 @@ package de.paulweber.spenderino.android.screens.scanner
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -16,6 +15,7 @@ import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.PermissionRequired
 import com.google.accompanist.permissions.PermissionState
 import de.paulweber.spenderino.android.R
+import de.paulweber.spenderino.android.views.PrimaryButton
 
 @ExperimentalPermissionsApi
 @Composable
@@ -37,7 +37,7 @@ fun WithCameraPermission(
                     style = MaterialTheme.typography.body1,
                     textAlign = TextAlign.Center
                 )
-                Button(onClick = { cameraPermissionState.launchPermissionRequest() }) {
+                PrimaryButton(onClick = { cameraPermissionState.launchPermissionRequest() }) {
                     Text(stringResource(R.string.donation_scanner_permission_button))
                 }
             }
@@ -53,7 +53,7 @@ fun WithCameraPermission(
                     style = MaterialTheme.typography.body1,
                     textAlign = TextAlign.Center
                 )
-                Button(onClick = openSettingsClosure) {
+                PrimaryButton(onClick = openSettingsClosure) {
                     Text(stringResource(R.string.donation_scanner_permission_denied_button))
                 }
             }

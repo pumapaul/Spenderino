@@ -18,6 +18,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.paulweber.spenderino.android.R
+import de.paulweber.spenderino.android.views.ErrorView
+import de.paulweber.spenderino.android.views.LoadingView
 import de.paulweber.spenderino.viewmodel.AccountState
 import de.paulweber.spenderino.viewmodel.AccountViewModel
 
@@ -53,6 +55,8 @@ fun AccountView(state: AccountState, viewModel: AccountViewModel) {
                         )
                     }
                 }
+                AccountState.Error -> ErrorView()
+                AccountState.Loading -> LoadingView()
             }
         }
     }

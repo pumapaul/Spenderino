@@ -5,10 +5,8 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Button
-import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.DropdownMenu
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.Icon
@@ -28,6 +26,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import de.paulweber.spenderino.android.R
+import de.paulweber.spenderino.android.views.PrimaryLoadingButton
 import de.paulweber.spenderino.utility.toEuroString
 import de.paulweber.spenderino.viewmodel.RecipientAction
 import de.paulweber.spenderino.viewmodel.RecipientState
@@ -66,17 +65,11 @@ fun CreateWithdrawalView(
                 Picker(state.currentBalance, viewModel, pickerValue)
             }
 
-            Button(
+            PrimaryLoadingButton(
+                isLoading = state.isCreatingWithdrawal,
                 onClick = { viewModel.perform(RecipientAction.CreateWithdrawal(pickerValue.value)) },
                 enabled = !state.isCreatingWithdrawal,
-                modifier = Modifier.size(200.dp, 50.dp)
-            ) {
-                if (state.isCreatingWithdrawal) {
-                    CircularProgressIndicator()
-                } else {
-                    Text(stringResource(R.string.balance_withdrawal_create_button))
-                }
-            }
+            ) { Text(stringResource(R.string.balance_withdrawal_create_button)) }
         }
     }
 }
