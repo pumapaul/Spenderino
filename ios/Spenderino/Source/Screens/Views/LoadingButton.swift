@@ -11,7 +11,7 @@ struct LoadingButton<Label: View>: View {
     let isLoading: Bool
     let action: () -> Void
     let label: () -> Label
-    
+
     var body: some View {
         Button {
             action()
@@ -26,4 +26,3 @@ struct LoadingButton<Label: View>: View {
         }
     }
 }
-
