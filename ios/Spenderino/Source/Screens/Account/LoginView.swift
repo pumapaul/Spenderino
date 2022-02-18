@@ -36,31 +36,19 @@ struct LoginView: View {
     }
 
     var loginButton: some View {
-        Button {
+        LoadingButton(isLoading: state.isLoginLoading) {
             viewModel.perform(action: AccountAction.Login())
         } label: {
-            if state.isLoginLoading {
-                ProgressView()
-                    .frame(width: 200, height: 30)
-            } else {
-                Text("account_button_login")
-                    .frame(width: 200, height: 30)
-            }
+            Text("account_button_login")
         }
         .buttonStyle(.borderedProminent)
     }
 
     var registerButton: some View {
-        Button {
+        LoadingButton(isLoading: state.isRegisterLoading) {
             viewModel.perform(action: AccountAction.Register())
         } label: {
-            if state.isRegisterLoading {
-                ProgressView()
-                    .frame(width: 200, height: 30)
-            } else {
-                Text("account_button_register")
-                    .frame(width: 200, height: 30)
-            }
+            Text("account_button_register")
         }
         .buttonStyle(.bordered)
     }
