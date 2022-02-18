@@ -21,7 +21,7 @@ android {
         applicationId = "de.paulweber.spenderino.android"
         minSdk = 21
         targetSdk = 31
-        versionCode = 5
+        versionCode = 6
         versionName = "1.0"
     }
 
